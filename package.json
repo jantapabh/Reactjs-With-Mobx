@@ -6,6 +6,7 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+    "classlist.js": "^1.1.20150312",
     "mobx-react": "^6.3.0",
     "mobx-react-lite": "^2.2.2",
     "mobx-state-tree": "^3.17.2",

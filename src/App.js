@@ -1,5 +1,7 @@
 import React from 'react';
-import { useLocalStore, useObserver } from "mobx-react";
+import { useLocalStore,  observer  } from "mobx-react";
+// import { observer } from 'mobx-react';
+// import { observable } from "mobx"
 
 const StoreContext = React.createContext();
 
@@ -33,7 +35,7 @@ const BugsList = () => {
 function App() {
   return (
     <StoreProvider>
-      <main>Bugs!!!</main>
+      <main><BugsList /></main>
       </StoreProvider>
   );
 }
