@@ -1,25 +1,40 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useLocalStore, useObserver } from "mobx-react";
+
+const StoreContext = React.createContext();
+
+
+const StoreProvider = ({ childern }) => {
+  const store = useLocalStore(() => ({
+    bugs: ["Centiped"]
+  }));
+
+  return (
+    <StoreContext.Provider>{childern}</StoreContext.Provider>
+  )
+
+};
+
+const BugsList = () => {
+  const store = React.useContext(StoreContext);
+
+  return(
+    <ul>
+      {
+        store.bugs.map(bug => (
+        <li key={bug}>{bug}</li>
+        ))
+      }
+      </ul>
+  );
+};
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <StoreProvider>
+      <main>Bugs!!!</main>
+      </StoreProvider>
   );
 }
 
